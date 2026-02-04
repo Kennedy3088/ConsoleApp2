@@ -5,6 +5,7 @@ Module Program
         Console.WriteLine(SommeChiffr(456))
         Console.WriteLine(Fibonn(7))
         Fibonnaci(8)
+        Console.WriteLine(nombrepremier(17))
 
 
 
@@ -13,13 +14,13 @@ Module Program
         Dim compteur As Integer = 0
         Dim i As Integer
 
-        For i = 1 To n
+        For i = 2 To n - 1
             If n Mod i = 0 Then
                 compteur += 1
             End If
         Next
 
-        If compteur = 2 Then
+        If compteur = 0 Then
             Console.WriteLine(n & " est premier")
         Else
             Console.WriteLine(n & "  n'est pas premier")
@@ -102,7 +103,16 @@ Module Program
 
     End Sub
 
+    Function nombrepremier(n As Integer) As Boolean
 
-
+        Dim compteur As Boolean = True
+        Dim i As Integer
+        For i = 2 To n - 1
+            If n Mod i = 0 Then
+                compteur = False
+            End If
+        Next
+        Return compteur
+    End Function
 
 End Module
