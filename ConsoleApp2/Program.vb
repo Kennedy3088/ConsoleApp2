@@ -3,6 +3,28 @@ Module Program
         Console.WriteLine(Factorielle(4))
         Console.WriteLine(SommeChiffres(234))
         Console.WriteLine(SommeChiffr(456))
+        Console.WriteLine(Fibonn(7))
+        Fibonnaci(8)
+
+
+
+
+        Dim n As Integer = 17
+        Dim compteur As Integer = 0
+        Dim i As Integer
+
+        For i = 1 To n
+            If n Mod i = 0 Then
+                compteur += 1
+            End If
+        Next
+
+        If compteur = 2 Then
+            Console.WriteLine(n & " est premier")
+        Else
+            Console.WriteLine(n & "  n'est pas premier")
+
+        End If
 
 
 
@@ -37,13 +59,50 @@ Module Program
         Dim somme = 0, div As Integer
 
         While nbr > 0
-            div = nbr Mod 10
-            somme += div   ' Prend le dernier chiffre
-            nbr \= 10    ' Supprime le dernier chiffre
+            div = nbr Mod 10    ' Prend le dernier chiffre
+            somme += div
+            nbr \= 10            ' Supprime le dernier chiffre
         End While
 
         Return somme
     End Function
+
+
+
+    Function Fibonn(f As Integer) As Integer
+        Dim a As Integer = 0
+        Dim b As Integer = 1
+        Dim c, temp As Integer
+
+        If f = 0 Then Return a
+        If f = 1 Then Return b
+
+        For c = 2 To f
+            temp = a + b
+            a = b
+            b = temp
+        Next
+        Return b
+
+    End Function
+
+
+    Sub Fibonnaci(n As Integer)
+        Dim a As Integer = 0
+        Dim b As Integer = 1
+        Dim i, temp As Integer
+        Console.Write("suite de fibonnacci de " & n & ": ")
+        For i = 0 To n - 1
+            Console.Write(a & " ")
+            temp = a + b
+            a = b
+            b = temp
+        Next
+        Console.WriteLine()
+
+    End Sub
+
+
 
 
 End Module
